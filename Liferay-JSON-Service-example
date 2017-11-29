@@ -1,0 +1,10 @@
+Portlet JSON info
+
+Example Portlet
+https://github.com/liferay/liferay-plugins/blob/master/portlets/sample-json-portlet/docroot/view.jsp
+
+This is another example (doesn't make much sense)
+http://liferayway.blogspot.com/2013/08/ajaxjsonl iferay-example.html
+
+This one is really good tutorial on how to use serveResource method
+http://ajax-and-portlets.blogspot.in/2011/09/ajax-best-practice-in-portlets.html

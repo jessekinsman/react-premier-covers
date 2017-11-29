@@ -1,0 +1,25 @@
+//All transformation by Babel is done by plugins. For example, Arrow functions are one plugin
+//Since you don't want to have to import hundreds of plugings, they created groups of plugins called presets
+{
+    "presets": [
+        "react",
+        ["env", {
+            "targets": {
+                "browsers": "last 2 versions"
+            }, 
+            "loose": true,
+            "modules": false
+        }]
+    ],
+    "plugins": [
+        "babel-plugin-transform-class-properties"
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                "react-hot-loader/babel",
+                "babel-plugin-transform-es2015-modules-commonjs"
+            ]
+        }
+    }
+}

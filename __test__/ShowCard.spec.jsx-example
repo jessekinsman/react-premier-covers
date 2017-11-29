@@ -1,0 +1,15 @@
+import React from 'react';
+import { shallow } from 'enzyme';
+import preload from '../data.json';
+import ShowCard from '../js/ShowCard';
+
+const index = 1;
+test('ShowCard renders correctly', () => {
+    const component = shallow(<ShowCard key={preload.shows[index].imdbID} {...preload.shows[index]} />);
+    expect(component).toMatchSnapshot();
+});
+
+test('Expect a title in <h3> element', () => {
+   const comp = shallow(<ShowCard {...preload.shows[1]} />);
+    expect(comp.find('h3').text()).toEqual(preload.shows[index].title);
+});
