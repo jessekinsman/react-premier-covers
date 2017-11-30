@@ -30,12 +30,15 @@ class ChildMenu extends Component {
           if (item.selected) {
             classN = 'active category';
           }
-          return (
-            <li className={`${classN}`} key={item.description}>
-              <a onClick={this.handleClick} role="link" tabIndex="-1">{item.description}</a>
-              <GrandChild items={item.children} key={item.id} />
-            </li>
-          );
+          if (item.description.toLowerCase() !== "options") {
+            return (
+              <li className={`${classN}`} key={item.description}>
+                <a onClick={this.handleClick} role="link" tabIndex="-1">{item.description}</a>
+                <GrandChild items={item.children} key={item.id} />
+              </li>
+            )
+          }
+          return null;
         })}
       </ul>
     );

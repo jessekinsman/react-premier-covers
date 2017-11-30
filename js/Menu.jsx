@@ -15,7 +15,7 @@ class Menu extends Component {
       <div className="accordion">
         <ul id="sub-nav-cse">
           {this.props.items.map(item => {
-            // need to only have one return statement and put the rest into const 
+            // need to only have one return statement and put the rest into const
             if (item.selected) {
               return (
                 <li className="active top" key={item.name}>
