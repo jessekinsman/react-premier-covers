@@ -1,5 +1,9 @@
 // @flow
 
+export type Terms = {
+  terms: array<string>
+}
+
 export type Cover = {
   title: string,
   description: string,
@@ -31,6 +35,12 @@ export type TopMenu = {
   name: string,
   path: string,
   children: array<MenuCategory>
+}
+
+export type Filter = {
+  name: string,
+  id: number,
+  children: array
 }
 
 // telling flow that module is an objet with a propertly called hot. And one function called accept

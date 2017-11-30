@@ -4,6 +4,8 @@ import React, { Component } from 'react';
 import ShowCard from './ShowCard';
 import Header from './Header';
 import Menu from './Menu';
+import FilterForm from './FilterForm';
+import { getFilters } from './setActive';
 
 // {...object} is a spread operator to pass all the items to a top level so it is now props.title instead of show.props.title
 // We could pass show={show} instead of spread operator or we could list them all out title={show.title}
@@ -31,6 +33,11 @@ class Search extends Component {
           <Menu items={this.props.menudata} term={this.props.terms} />
         </div>
         <div id="content-right">
+          <div className="productsHeader">
+            <div className="optionsContainer">
+              <FilterForm terms={this.props.terms} items={getFilters(this.props.menudata, "/covers", "options")} {...this.props} />
+            </div>
+          </div>
           <div className="courseListContainer">
             {this.props.covers
               .filter(

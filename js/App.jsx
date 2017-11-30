@@ -9,7 +9,7 @@ import Details from './Details';
 import Search from './Search';
 import preload from '../data.json';
 import menuData from '../menu.json';
-import setActive from './setActive';
+import { setActive } from './setActive';
 
 const fourOhFour = () => <h1>404 Error</h1>;
 

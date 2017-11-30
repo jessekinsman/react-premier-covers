@@ -51,4 +51,20 @@ const setActive = (item, term, path) => {
 
   return newMenu;
 };
-export default setActive;
+
+const getFilters = (data, path, itemName) => {
+  for (let i = 0; i < data.length; i += 1) {
+    if (data[i].path === path) {
+      if (data[i].children.length) {
+        for (let f =0; f < data[i].children.length; f += 1) {
+          if (data[i].children[f].description.toLowerCase() === itemName) {
+            return data[i].children[f];
+          }
+        }
+      }
+    }
+  }
+  return null;
+}
+
+export {setActive, getFilters};
