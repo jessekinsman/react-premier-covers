@@ -67,4 +67,14 @@ const getFilters = (data, path, itemName) => {
   return null;
 }
 
-export {setActive, getFilters};
+const termsToArray = (termObj, maxTerms, termName) => {
+  const terms = [];
+  for (let i = 1; i <= maxTerms; i += 1) {
+    if(termObj[`${termName}${i}`]) {
+      terms.push(termObj[`${termName}${i}`]);
+    }
+  }
+  return terms;
+}
+
+export {setActive, getFilters, termsToArray};

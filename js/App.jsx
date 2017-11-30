@@ -9,7 +9,7 @@ import Details from './Details';
 import Search from './Search';
 import preload from '../data.json';
 import menuData from '../menu.json';
-import { setActive } from './setActive';
+import { setActive, termsToArray } from './setActive';
 
 const fourOhFour = () => <h1>404 Error</h1>;
 
@@ -25,15 +25,24 @@ const App = () => (
           }}
         />
         <Route
-          path="/search/:term1/:term2"
+          // Need to add wildcard so more than one filter can be selected
+          // path="/search/:term1/*
+          // in filterCovers filter need to do a loop through terms
+          path="/search/:term1/:term2/:term3*/:term4*/:term5*"
           component={(props: { match: Match }) => {
+            const terms = termsToArray(props.match.params, 5, "term");
             const filterdCovers = preload.covers.filter(
-              cover =>
-                cover.terms.indexOf(props.match.params.term1) !== -1 &&
-                cover.terms.indexOf(props.match.params.term2) !== -1
+              (cover) => {
+                  for (let i = 0; i< terms.length; i += 1) {
+                    if (cover.terms.indexOf(terms[i]) === -1) {
+                      return false;
+                    }
+                  }
+                  return true;
+              }
             );
             return (
-              <Search covers={filterdCovers} terms={[props.match.params.term1, props.match.params.term2]} menudata={setActive(menuData, [props.match.params.term1, props.match.params.term2], "/covers")} {...props} />
+              <Search covers={filterdCovers} terms={terms} menudata={setActive(menuData, terms, "/covers")} {...props} />
             );
           }}
         />
