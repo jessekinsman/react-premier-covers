@@ -11,7 +11,7 @@ const Checkbox = (props: {item: Filter, terms: Terms, clickHandler: Function}) =
   }
   let input;
   if (active) {
-    input = <input type="checkbox" name="filter" value={props.item.id} id={props.item.id} checked onClick={props.clickHandler} />
+    input = <input type="checkbox" name="filter" value={props.item.id} id={props.item.id} defaultChecked onClick={props.clickHandler} />
   } else {
     input = <input type="checkbox" name="filter" value={props.item.id} id={props.item.id} onClick={props.clickHandler} />
   }
