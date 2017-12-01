@@ -34,7 +34,9 @@ const FilterForm = (props: {items: MenuCategory, terms: Terms}) => {
         break;
       }
     }
-    path += event.target.value;
+    if (event.target.value !== "0") {
+      path += event.target.value;
+    }
     props.history.push(path);
   }
   const checkboxes = props.items.children.filter(item => !item.children.length);
