@@ -58,5 +58,4 @@ const FilterForm = (props: {items: MenuCategory, terms: Terms}) => {
   )
 }
 
-
 export default FilterForm;

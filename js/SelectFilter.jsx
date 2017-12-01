@@ -2,18 +2,12 @@
 import React, { Component } from 'react';
 
 class SelectFilter extends Component {
-  state = {
-    selected: 0
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: this.getActive(props)
+    }
   }
-  /* componentWillReceiveProps(props) {
-    this.setActive(props);
-  } */
- props: {
-   item: Filter,
-   terms: Terms,
-   selected: Number,
-   clickHandler: Function
- }
  getActive = (props) => {
    let active = 0;
    for (let i = 0; i < props.item.children.length; i += 1){
@@ -26,16 +20,21 @@ class SelectFilter extends Component {
  isSelected = (terms, id) => (
     terms.some((ele) => ele === id.toString())
   )
+  props: {
+    item: Filter,
+    terms: Terms,
+    clickHandler: Function
+  }
   render () {
-    const selectItems = this.props.item.children.map(selectItem => {
-      return <option key={selectItem.id} value={selectItem.id}>{selectItem.name}</option>
-    });
+    const selectItems = this.props.item.children.map(selectItem => (
+      <option key={selectItem.id} value={selectItem.id}>{selectItem.name}</option>
+    ));
     return (
       <div className="col2">
         <span className="title">
           {this.props.item.name}
         </span>
-        <select name="filter" value={this.getActive(this.props)} onChange={this.props.clickHandler}>
+        <select name="filter" value={this.state.selected} onChange={this.props.clickHandler}>
           <option value="0">Any</option>
           {selectItems}
         </select>

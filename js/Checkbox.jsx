@@ -1,6 +1,8 @@
 // @flow
 import React from 'react';
 
+// Think I should probably change this to a state component
+
 const Checkbox = (props: {item: Filter, terms: Terms, clickHandler: Function}) => {
   let active = false;
   for (let i = 0; i < props.terms.length; i += 1) {
