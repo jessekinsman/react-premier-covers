@@ -48,11 +48,11 @@ const FilterForm = (props: {items: MenuCategory, terms: Terms}) => {
           {description}
         </span>
         {checkboxes.map(item => (
-          <Checkbox item={item} key={item.id} terms={props.terms} clickHandler={handleClick} />
+          <Checkbox item={item} key={item.id} terms={props.terms} clickHandler={handleClick} {...props} />
         ))}
       </div>
       {selectboxes.map(item => (
-          <SelectFilter item={item} key={item.name} terms={props.terms} clickHandler={handleChange} />
+          <SelectFilter item={item} key={item.name} terms={props.terms} clickHandler={handleChange} {...props} />
       ))}
     </form>
   )

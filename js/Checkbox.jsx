@@ -9,15 +9,9 @@ const Checkbox = (props: {item: Filter, terms: Terms, clickHandler: Function}) =
       break;
     }
   }
-  let input;
-  if (active) {
-    input = <input type="checkbox" name="filter" value={props.item.id} id={props.item.id} defaultChecked onClick={props.clickHandler} />
-  } else {
-    input = <input type="checkbox" name="filter" value={props.item.id} id={props.item.id} onClick={props.clickHandler} />
-  }
   return (
     <label className="label" htmlFor={props.item.id}>
-      {input}
+      <input type="checkbox" key={props.item.id} name="filter" value={props.item.id} id={props.item.id} checked={active} onChange={props.clickHandler} onClick={props.clickHandler} />
       {props.item.name}
     </label>
   );
