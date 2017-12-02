@@ -14,7 +14,7 @@ import { setActive, termsToArray } from './setActive';
 const fourOhFour = () => <h1>404 Error</h1>;
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/react-premier-covers">
     <div className="app">
       <Switch>
         <Route
@@ -54,7 +54,7 @@ const App = () => (
             return <Search covers={filterdCovers} terms={[props.match.params.term]} menudata={setActive(menuData, [props.match.params.term], "/covers")} {...props} />;
           }}
         />
-        <Route path="/search" component={props => <Search covers={preload.covers} menudata={setActive(menuData, [], "/covers")} terms={[]} {...props} />} />
+        <Route path="/" component={props => <Search covers={preload.covers} menudata={setActive(menuData, [], "/covers")} terms={[]} {...props} />} />
         <Route component={fourOhFour} />
       </Switch>
     </div>
