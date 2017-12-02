@@ -35,7 +35,7 @@ const ShowCard = (props: Cover) => (
         <div className="gradeIcons">
           {props.grades.map(item => (
             <Gradeimg
-              src={`${imgPath}${item.image.toLoserCase()}.png`}
+              src={`${imgPath}${item.image}.png`}
               alt={`${item.name}`}
               key={`${item.name}`}
               className="gradeIcon"
